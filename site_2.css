@@ -1,0 +1,655 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul,
+ol,
+li {
+    list-style: top;
+    list-style-type: none;
+}
+img {
+    vertical-align: top;
+    display: block;
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,
+body {
+    height: 100%;
+    line-height: 1;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F4F4F4;
+}
+
+/* ------------------------------------------------------------------------ */
+img {
+    display: block;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 15px;
+}
+@media (max-width: 1200px) {
+	.container {
+		max-width: 880px;
+        
+	}
+    .card {
+        margin: 0 5px;
+    }
+}
+@media (max-width: 870px) {
+	.container {
+		max-width: 630px;
+	}
+}
+
+@media (max-width: 829px) {
+	.container {
+		max-width: 600px;
+	}
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+.main {
+    width: 870px;
+}
+.sidebar {
+    width: 270px;
+	min-width: 200px;
+}
+@media (max-width: 1200px) {
+    .sidebar {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 870px) {
+	.sidebar {
+        margin-left: 0  !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        
+        background-color: white;
+        padding: 15px;
+        box-shadow: 0 0 20px 4px rgb(0 0 0 / 40%);
+        /* сайдбар скроллится и появл-ся/исчезает */
+        overflow-y: scroll;
+        bottom: 0;
+        transform: translateX(-140%);
+        transition: translateX 0.2s ease-in;
+    }
+    .sidebar--mobile-active {
+        transform: translateX(0%);
+    }
+}
+.cards-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cards-holder > * {
+    margin: 0 0 30px 0;
+}
+@media (max-width: 599px) {
+    .cards-holder {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.card-link--hidden {
+    display: none !important;
+}
+/* ----------CARD-------------------------------------------------------------- */
+.card-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+}
+.card-link:hover {
+    opacity: 0.8;
+    transform: translateY(-5px);
+}
+.card {
+    position: relative;
+    background-color: #fff;
+    width: 270px;
+    line-height: 116%;
+    font-size: 14px;
+}
+.card__badges {
+    display: flex;
+    position: absolute;
+    margin: 10px 10px 0 0;    
+}
+.card__badges > *:not(:last-child){
+    background-color: #FFCF26;
+    margin: 0 10px 0 15px;
+    color: black;
+}
+
+.card__badge {
+    background-color: #11BE75;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 3px 10px;
+    color: #fff;
+}
+.card__img {
+}
+.card__content {
+    padding: 15px 15px 20px;
+    color: #000000;
+}
+.card__content > *:not(:last-child){
+    margin: 0 0 10px 0;
+}
+.card__title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 116%;
+}
+.card__term {
+}
+.card__metro {
+}
+.card__metro::before {
+    content: "";
+    vertical-align: baseline;
+    background-image: url('./image/icons/metro.svg');
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 11px;
+    margin-right: 10px;
+}
+.card__addres {
+    color: #777777;
+}
+.btn-more {
+    width: 100%;
+    height: 80px;
+    background-color: #e5e5e5;
+    border-radius: 4px;
+    border: none;
+
+    align-items: center;
+	justify-content: center;
+    display: flex;
+    text-align: center;
+    padding: 26px 0 30px 0;
+
+    font-size: 18px;
+    line-height: 116%;
+    color: #4290C9;
+
+    cursor: pointer;
+    transition: background-color .2s ease-in;
+}
+.btn-more:hover {
+    background-color: #dddbdb;
+    opacity: 0.8;
+}
+.btn-more img{
+    margin-right: 10px;
+    vertical-align: bottom;
+    font-size: 18px;
+    line-height: 116%;
+    display: inline-block;
+}
+
+/* ----------SIDEBAR-------------------------------------------------------------- */
+.form > * {
+    margin: 0 0 30px 0;
+}
+/* по другому: .widget+ .widget */
+.widget {
+    color:#000;
+}
+.widget__title {
+    position: relative;
+    font-size: 18px;
+    line-height: 116%;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+}
+.widget__title::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    position: absolute;
+    right:  0;
+    background-image: url("./image/icons/up.svg");
+    background-repeat: no-repeat;
+    background-size: initial;
+}
+/* переворачиваем вверх/вниз */
+.widget__title--active::after {
+	transform: rotate(180deg);
+}
+/* контент вижн */
+.widget__body--hidden {
+	display: none;
+}
+
+/* ДЕЛАЕм====================================================== */
+
+/* Hidden elements widget */
+
+.widget__hidden {
+	display: none;
+}
+
+.widget__btn-show-hidden {
+	display: inline-block;
+	margin-top: 15px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	font-family: inherit;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 1.19;
+	color: #4290c9;
+	cursor: pointer;
+	transition: color 0.2s ease-in;
+}
+
+.widget__btn-show-hidden:active, .widget__btn-show-hidden:focus {
+	outline: none;
+}
+
+.widget__btn-show-hidden:hover {
+	color: #007fda;
+	text-decoration: underline;
+}
+/* ------------------------------------------------------------ */
+
+.widget__body-location {
+}
+.location {
+}
+.location__row {
+    display: flex;
+}
+
+.location__row:first-child {
+    border-radius: 4px 4px 0px 0px;
+    border: 1px solid #D6D6D6;
+    overflow: hidden;
+    border-bottom: none;
+
+}
+.location__row:last-child {
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #D6D6D6;
+    overflow: hidden;
+}
+.location__row:last-child .location__btn {
+    
+    text-align: center;
+    align-items: center;
+
+}
+
+.location__btn {
+    /* для того чтобы занимали свободное место! */
+    flex-grow: 1;
+    padding: 15px 15px;
+    background-color: transparent;
+    color: #3C3C3C;
+
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+
+    line-height: 100%;
+    text-align: center;
+    cursor: pointer;
+    /* плавный переход */
+    transition: background-color 0.2s ease-in;
+}
+.location__checkbox {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+}
+.location__checkbox:checked + .location__btn {
+    background-color: #FFCF26;
+}
+.location__checkbox:checked + .location__btn:hover {
+    background-color: #ffdb5b81;
+}
+.location__btn:hover {
+    background-color: #ffdb5b81;
+}
+
+/* ----------RADIO-------------------------------------------------------------- */
+
+.widjet__body-radio {
+}
+.widget__body > *:not(:last-child) {
+    margin: 0 0 15px 0;
+}
+.radio {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 118%;
+    display: block;
+    cursor: pointer;
+}
+
+.radio__real {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+}
+.radio__fake {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #777777;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    /* margin: 0 0 0 -10px; */
+    vertical-align: bottom;
+    margin-right: 10px;
+    background-color: #FFF;
+}
+.radio__real:checked + .radio__fake {
+    background-color: #FFE074;
+}
+
+.radio__real:checked + .radio__fake::before {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #3C3C3C;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+.radio__real:checked ~ .radio__title {
+    font-weight: 500;
+}
+
+.radio__title {
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 118%;
+}
+
+/* ----------checkbox-------------------------------------------------------------- */
+
+.widjet__body-checkbox {
+}
+
+.checkbox {
+	display: block;
+	cursor: pointer;
+}
+.checkbox--hidden {
+	display: none;
+}
+
+.checkbox + .checkbox {
+	margin-top: 15px;
+}
+
+/* Другой */
+.checkbox__real {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+}
+
+/* Другой */
+
+.checkbox__fake {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 1px solid #777777;
+    box-sizing: border-box;
+    border-radius: 2px;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+.checkbox__real:checked + .checkbox__fake::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-image: url(./image/icons/check.svg);
+    background-size: initial;
+    background-position: center;
+    transform: translate(-50%,-50%);
+}
+.checkbox__title {
+    font-weight: 400;
+    line-height: 118%;
+}
+.checkbox__real:checked ~ .checkbox__title {
+    font-weight: 500;
+}
+.checkbox__real:checked + .checkbox__fake {
+    background-color: #FFE074;
+}
+
+/* ----------HIDDEN-------------------------------------------------------------- */
+
+.widjet__hidden {
+    display: none;
+}
+.widjet__show-hidden {
+    background: transparent;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 119%;
+    color: #4290C9;
+    cursor: pointer;
+    transition: color .2s ease-in;
+}
+.widjet__show-hidden:hover {
+    color: #0d66a5;
+    text-decoration: underline;
+}
+
+
+/* ----------TOOGLE-------------------------------------------------------------- */
+
+.toogle {
+    cursor: pointer;
+}
+.toogle__real {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+}
+.toogle__fake {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #777777;
+    border-radius: 10px;
+    width: 37px;
+    height: 20px;
+    vertical-align: bottom;
+    margin-right: 10px;
+    background-color: #C4C4C4;
+}
+
+.toogle__fake::before {
+    margin: 1px 0 0 2px;
+    position: absolute;
+    content: "";
+    background-color: #3C3C3C;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    /* transition: all .2s ease-in; */ 
+/* -------- пытался переместить вправо----------- */
+}
+.toogle__real {
+}
+.toogle__real:checked ~ .toogle__title {
+    font-weight: 500;
+}
+.toogle__real:checked + .toogle__fake {
+    background-color: #FFE074;
+}
+/* Не знаю как плавно перемещать влево/вправо */
+.toogle__real:checked + .toogle__fake::before {
+    left: 16px;
+}
+
+/* ----------form button-------------------------------------------------------------- */
+.form__btn {
+    height: 50px;
+    width: 100%;
+    border: 1px solid #D6D6D6;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 4px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+    color: #3C3C3C;
+}
+.form__btn:hover {
+    background-color: rgb(223, 223, 223);
+}
+.form__btn img{
+    display: inline-block;
+    vertical-align: bottom;
+    
+}
+
+.form__btn-submit {
+    background-color:  #FFCF26;
+    border: none;
+    color: #000;
+}
+.form__btn-submit:hover {
+    background-color:  #fac711;
+
+}
+
+.form__btn +.form__btn {
+/* margin-top: 10px; */
+}
+
+/*/* Button Toggle Sidebar */
+
+.toggle-sidebar {
+	display: block;
+	position: fixed;
+    /* position: absolute; */
+	z-index: 9;
+	right: 15px;
+	top: 8px;
+	width: 45px;
+	height: 45px;
+	background-color: rgb(71, 71, 71);
+	justify-content: center;
+	align-items: center;
+    border: none;
+    padding: 5px;
+}
+
+@media (max-width: 870px) {
+	.toggle-sidebar {
+		display: flex;
+	}
+}
+
+.menu-icon-wrapper {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+    padding-left: 2px;
+	border: none;
+	background-color: transparent;
+}
+
+.menu-icon {
+	position: relative;
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+}
+
+.menu-icon::before {
+	position: absolute;
+	left: 0;
+	top: -10px;
+	content: '';
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+
+.menu-icon::after {
+	position: absolute;
+	left: 0;
+	top: 10px;
+	content: '';
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+
+.menu-icon.menu-icon-active {
+	background-color: transparent;
+}
+
+.menu-icon.menu-icon-active::before {
+	transform: rotate(45deg);
+	top: 0;
+	transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+
+.menu-icon.menu-icon-active::after {
+	transform: rotate(-45deg);
+	top: 0;
+	transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
